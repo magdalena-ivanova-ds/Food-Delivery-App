@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Happy food delivery</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            .carousel-inner {
+                width: 75%;
+                height: auto;
+            }
+
+            .carousel-inner img {
+                border-radius: 15px;
+                filter: blur(2px) brightness(80%) grayscale(40%);
+                opacity: 0.8;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                filter: invert(100%); 
+            }
+
+            .carousel-caption {
+                background-color: rgb(0, 0, 0, 0.6);
+                border-radius: 20px;
+                font-weight: bold;
+                color: white;
+                font-size: 30px;
+            }
+
+            .card {
+                background: white;
+                border-radius: 15px;
+            }
+
+            .card img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .card-body {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .card-body h5 {
+                font-size: 17px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .card-body p {
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+
+            .card-body .btn {
+                width: 100%;
+                font-size: 15px;
+                font-weight: bold;
+            }
+
+            .plus, .minus {
+                padding: 1px 8px;
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .final-price1 {
+                padding-top: 10px;
+                border: 1px solid black;
+                border-radius: 5px;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .form-control:invalid {
+                border: 2px solid red;
+            }
+
+            .form-control:valid {
+                border: 2px solid green;
+            }
+
+
+            footer {
+                background-color: rgb(211, 196, 196);
+                border-top: 1px solid grey;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                margin-top: 40px;
+            }
+
+
+        </style>
+    </head>
+    <body class="bg-danger-subtle" style="text-align: center;">
+        
+    <!--Nav -->
+    <nav class="navbar navbar-expand bg-danger m-3" style="border-radius: 10px;">
+        <div class="container-fluid p-2">
+            <div class="collapse navbar-collapse"id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-5">
+                        <a class="nav-link fs-5"href="#home">Home</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link fs-5"href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link fs-5"href="#yourcart">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Header-->
+    <header>
+        <h2 id="home" style="text-align: center;">Happy Food Delivery</h2>
+    </header>
+
+    <!--Carousel-->
+    <section>
+        <div id="carouselExampleControls"class="carousel slide d-flex justify-content-center m-4"data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/pic1.jpg"class="d-block w-100"alt="...">
+                    <div class="carousel-caption d-flex justify-content-center">
+                        <p>Freshly prepared meals that taste like home</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pic2.jpg"class="d-block w-100"alt="...">
+                    <div class="carousel-caption d-flex justify-content-center">
+                        <p>Get your favorite dishes delivered quickly, so you can enjoy them while they’re still hot.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pic3.jpg"class="d-block w-100"alt="...">
+                    <div class="carousel-caption d-flex justify-content-center">
+                        <p>Enjoy hearty meals with family and friends, delivered right to your doorstep</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev"type="button"data-bs-target="#carouselExampleControls"data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next"type="button"data-bs-target="#carouselExampleControls"data-bs-slide="next">
+                <span class="carousel-control-next-icon text-dark"aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!--Menu-->
+    <h2 id="menu" style="margin-top: 50px; margin-bottom: 50px;">Menu</h2>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col m-3">
+                    <div class="card" data-name="Caprese salad" data-price="13.99">
+                        <img src="images/salad1.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Caprese salad</h5>
+                        <p>13.99€ | 390g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Caesar salad" data-price="14.50">
+                        <img src="images/salad2.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Caesar salad</h5>
+                        <p>14.50€ | 290g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Salad with roasted veggies" data-price="9.50">
+                        <img src="images/salad3.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Salad with roasted veggies</h5>
+                        <p>9.50€ | 440g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Chicken steak with roasted potatoes" data-price="14.99">
+                        <img src="images/main1.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Chicken steak with roasted potatoes</h5>
+                        <p>14.99€ | 380g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="card" data-name="Crispy chicken" data-price="15.50">
+                        <img src="images/main2.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Crispy chicken</h5>
+                        <p>15.50€ | 450g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Burger beef steak" data-price="18">
+                        <img src="images/main3.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Burger beef steak</h5>
+                        <p>18€ | 430g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Beef with roasted mushrooms" data-price="19.50">
+                        <img src="images/main4.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Beef with roasted mushrooms</h5>
+                        <p>19.50€ | 400g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Roasted beef with mushroom sauce and baked potatoes" data-price="20">
+                        <img src="images/main5.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Roasted beef with mushroom sauce and baked potatoes</h5>
+                        <p>20€ | 300g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="card" data-name="Sea bass filet" data-price="22">
+                        <img src="images/main6.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Sea bass filet</h5>
+                        <p>22€ | 310g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Salmon with baked veggies" data-price="23.99">
+                        <img src="images/main7.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Salmon with baked veggies</h5>
+                        <p>23.99€ | 320g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Fish & chips" data-price="14.99">
+                        <img src="images/main8.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Fish & chips</h5>
+                        <p>14.99€ | 330g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Pasta Carbonara" data-price="16.50">
+                        <img src="images/main9.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Pasta Carbonara</h5>
+                        <p>16.50€ | 330g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="card" data-name="Pasta Bolognese" data-price="14.50">
+                        <img src="images/main10.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Pasta Bolognese</h5>
+                        <p>14.50€ | 330g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Tiramisu" data-price="8.50">
+                        <img src="images/des1.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Tiramisu</h5>
+                        <p>8.50€ | 150g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Lindt chocolate cake" data-price="7.50">
+                        <img src="images/des2.png"class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Lindt chocolate cake</h5>
+                        <p>7.50€ | 100g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-3">
+                    <div class="card" data-name="Chocolate souffle" data-price="7.99">
+                        <img src="images/des3.png" class="card-img-top" alt="Item Image">
+                        <div class="card-body">
+                        <h5>Chocolate souffle</h5>
+                        <p>7.99€ | 80g</p>
+                        <button class="btn btn-success add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Cart-->
+    <section>
+        <div id="yourcart" class="cart">
+            <h3>Your Cart</h3>
+            <table class="table cart-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <hr>
+            <h4>Total: <span id="total-price">0.00€</span></h4>
+            <h4 id="total-discount"></h4>
+            <div class="d-flex justify-content-center m-3 p-2">
+                <button class="btn btn-primary" id="checkout-btn" data-bs-toggle="modal"
+                data-bs-target="#mymodal1">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Modal shipping information-->
+    <div class="modal fade" id="mymodal1" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center w-100">Shipping information</h2>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="shipping-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputName1"></label>
+                                <input type="text" class="form-control" placeholder="Name" id="customer-name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputEmail4"></label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" 
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required> <!--I saw what the pattern for the email and the phone number is in w3schools.com-->
+                                <small id="emailHelpBlock" class="form-text text-muted">
+                                Please enter a valid email address (e.g., name@example.com).
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputAddress"></label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputPhoneNumber"></label>
+                                <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone number" pattern="\d+" required>
+                                <small id="phoneNumHelpBlock" class="form-text text-muted">
+                                    Phone number should contain only numbers.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="inputCity"></label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="City" required>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="inputZip"></label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="Zip" maxlength="6" required>
+                            <small id="zipHelpBlock" class="form-text text-muted">   
+                                Zip should contain max. 6 characters long.
+                            </small>
+                          </div>
+                        </div>
+                      </form>
+                 </div>
+                 <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="order_button"
+                    data-bs-toggle="modal" data-bs-target="#mymodal2" disabled>Place order</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Order confirmation modal-->
+    <div class="modal fade" id="mymodal2" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center w-100" id="confirmation-title">Order Confirmed</h2>
+                    <button class="btn-close" id="close_btn_order_confirmation" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for your order, <span id="confirmation-name"></span>!</p>
+                    <div id="shipping-info-section" class="mb-4"></div>
+                    <div id="order-items-section">
+                        <ul class="mb-4" id="order-items"></ul>
+                    </div>
+                    <div class="final-price1 mt-5">
+                        <p id="final-price"></p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="close-button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <p>&copy; Happy Food Delivery 2024</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
+
