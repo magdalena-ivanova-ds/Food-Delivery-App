@@ -122,6 +122,11 @@ food-delivery-app/
 ```
 
 ---
+## Acknowledgments
+
+The images used in this project were sourced from [Happy Bar & Grill's menu](https://happy.bg/). These images are used for educational purposes and will not be used commercially.
+
+---
 
 ## License 📜
 
